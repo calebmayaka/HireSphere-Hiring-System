@@ -790,7 +790,7 @@
                                      style="font-size: 12px;font-style: normal;font-weight: normal;line-height: 19px;">
                                     <a href="http://www.example.com"
                                        style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #1bc1b6;"><img
-                                            alt="JobLand"
+                                            alt="HireSphere"
                                             src="{% static 'assets/email/registration/JobLand-logo1-a07df1038a5be309.png' %}" style="border: 0;display: block;height: auto;width: 100%;max-width: 150px;"
                                             width="150"/></a>
                                 </div>
@@ -829,7 +829,7 @@
                                     <div style="mso-line-height-rule: exactly;mso-text-raise: 11px;vertical-align: middle;">
                                         <p class="size-20"
                                            lang="x-size-20"
-                                           style="Margin-top: 0;Margin-bottom: 0;font-size: 16px;line-height: 24px;text-align: center;"><span style="color:#000000">To help get you started on your new placement journey, we&#8217;re welcoming you the most to explore variety of jobs for free on JobLand.</span>
+                                           style="Margin-top: 0;Margin-bottom: 0;font-size: 16px;line-height: 24px;text-align: center;"><span style="color:#000000">To help get you started on your new placement journey, we&#8217;re welcoming you the most to explore variety of jobs for free on HireSphere.</span>
                                         </p>
                                     </div>
                                 </div>
@@ -960,7 +960,7 @@ President</span></p>
                                      style="font-size: 12px;font-style: normal;font-weight: normal;line-height: 19px;Margin-bottom: 20px;">
                                     <a href="{{ home_link|safe }}" target="_blank"
                                        style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #1bc1b6;"><img
-                                            alt="JobLand"
+                                            alt="HireSphere"
                                             src="registration/JobLand-logo2-cb0a81038a5be308.png" style="border: 0;display: block;height: auto;width: 100%;max-width: 150px;"
                                             width="150"/></a>
                                 </div>
