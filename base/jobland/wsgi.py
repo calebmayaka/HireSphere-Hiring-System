@@ -1,5 +1,5 @@
 """
-WSGI config for jobland project.
+WSGI config for HireSphere project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
