@@ -6,7 +6,7 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Key in the .env file
+# Secret Key in the .env file
 SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', default=True, cast=bool)
