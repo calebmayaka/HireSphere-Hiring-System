@@ -167,9 +167,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'hirespherehiring@gmail.com'
+EMAIL_HOST_USER = 'mayakaombogo254@gmail.com'
 # google apps auth key
-EMAIL_HOST_PASSWORD = "uust aefn qeps tvxb"
+EMAIL_HOST_PASSWORD = "omdk nfdf uyfj tnvc"
 EMAIL_USE_TLS = True  # for security
 
 # p.k handling in case of undefined p.k
