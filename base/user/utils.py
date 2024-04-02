@@ -114,8 +114,8 @@ def render_to_pdf(template_src, context={}):
 
 
 def send_registration_mail(user):
-    subject = "Welcome to JobLand"
-    from_email = 'officialjobland777@gmail.com'
+    subject = "Welcome to HireSphere"
+    from_email = 'HireSphere@gmail.com'
 
     home_link = "http://127.0.0.1:8000"
     about_link = "http://127.0.0.1:8000"
