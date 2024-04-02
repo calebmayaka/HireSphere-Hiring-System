@@ -2,7 +2,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 from .models import *
 
-
+# user admin class
 class AccountAdmin(UserAdmin):
     list_display = ('email', 'name', 'last_login', 'is_admin', 'is_applicant', 'is_company')
     search_fields = ('email', 'name')
@@ -54,7 +54,7 @@ class WorkExperienceModelAdmin(admin.ModelAdmin):
 
 
 class EducationModelAdmin(admin.ModelAdmin):
-    list_display = ('user', 'school', 'degree', 'department', 'cgpa',)
+    list_display = ('user', 'school', 'degree', 'department', 'results',)
     search_fields = ('user',)
     readonly_fields = ()
 

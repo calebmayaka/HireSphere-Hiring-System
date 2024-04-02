@@ -123,7 +123,7 @@ class WorkExperienceModel(models.Model):
     job_title = models.CharField(max_length=255, null=True, blank=True)
     job_type = models.CharField(max_length=30, choices=JOB_TYPE_CHOICES, null=True, blank=True)
     job_desc = RichTextField(null=True, blank=True)
-    company = models.CharField(max_length=255, default="nazia")
+    company = models.CharField(max_length=255, default="Caleb Mayaka")
     location = models.CharField(max_length=255, null=True, blank=True)
     started = models.DateField(null=True, blank=True)
     left = models.DateField(null=True, blank=True)
@@ -136,7 +136,7 @@ class EducationModel(models.Model):
     department = models.CharField(max_length=255, null=True, blank=True)
     started = models.DateField(null=True, blank=True)
     end = models.DateField(null=True, blank=True)
-    cgpa = models.FloatField(max_length=255, null=True, blank=True)
+    results = models.CharField(max_length=255, default="First Class", null=True, blank=True)
 
 
 class SkillSetModel(models.Model):
