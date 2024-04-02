@@ -67,7 +67,7 @@
                                      style="font-size: 12px;font-style: normal;font-weight: normal;line-height: 19px;">
                                     <a href="{{ home_link|safe }}"
                                        style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #1bc1b6;"><img
-                                            alt="JobLand"
+                                            alt="HireSphere"
                                             src="{% static 'assets/email/JobLand-logo1-a07df1038a5be309.png' %}"
                                             style="border: 0;display: block;height: auto;width: 100%;max-width: 150px;"
                                             width="150"/></a>
