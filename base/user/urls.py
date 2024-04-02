@@ -1,4 +1,6 @@
 from django.urls import path
+
+# reset password library
 from django.contrib.auth import views as auth_views
 from .views import *
 
@@ -73,7 +75,8 @@ urlpatterns = [
     path('deactivation-successful/', deactivation_successful_view, name='deactivation-successful'),
     path('about', about, name='about'),
     path('contact', contact, name='contact'),
-     # Password reset functionalities
+
+     # Password reset views
     path('reset-password/',
          auth_views.PasswordResetView.as_view(template_name="user/password-reset.html"),
          name="reset-password"),
