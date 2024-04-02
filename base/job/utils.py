@@ -131,7 +131,7 @@ def send_mail_to_applicants(job):
 def send_new_job_mail_func(applicant_list, job):
     for applicant in applicant_list:
         subject = "A New Job Matches Your Speciality"
-        from_email = 'officialjobland777@gmail.com'
+        from_email = 'hiresphere@gmail.com'
 
         home_link = "http://127.0.0.1:8000"
         job_link = "http://127.0.0.1:8000/job/job-profile/" + str(job.id) + "/"
@@ -156,6 +156,6 @@ def send_mail_delete_job(user, job, details):
         subject + " from " + from_email,
         message,
         from_email,
-        ['officialjobland777@gmail.com', ],
+        ['hiresphere@gmail.com', ],
         # the mail address that the email will be sent to
     )
