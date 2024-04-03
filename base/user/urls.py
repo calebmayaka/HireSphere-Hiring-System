@@ -2,9 +2,11 @@ from django.urls import path
 
 # reset password library
 from django.contrib.auth import views as auth_views
+# importing views 
 from .views import *
 
 urlpatterns = [
+     # Home page
     path('', home, name='home'),
 
     # user login and logout url
