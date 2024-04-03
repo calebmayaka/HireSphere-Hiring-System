@@ -67,7 +67,7 @@ def login_page(request):
     }
     return render(request, 'user/login.html', context)
 
-
+# logout function, auth'd users
 def logout_user(request):
     logout(request)
     return redirect('login')
