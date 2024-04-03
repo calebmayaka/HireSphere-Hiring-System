@@ -14,14 +14,16 @@ from .filters import *
 from .forms import *
 from .utils import *
 
-
+# non auth users decorator
 @unauthenticated_user
+# function takes in a request
 def home(request):
+    # query the database for the users and jobs
     applicants = User.objects.filter(is_applicant=True)
     companies = User.objects.filter(is_company=True)
     jobs = JobModel.objects.all()
     filled_job = FilledJobModel.objects.all()
-    
+    # dictionary for counting the db records
     context = {
         'applicants': applicants,
         'applicants_len': applicants.count(),
@@ -31,9 +33,10 @@ def home(request):
         'jobs_len': jobs.count(),
         'filled_job_len':filled_job.count(),
     }
+    # passing the context dictionary and rednering the home page
     return render(request, 'user/index.html', context)
 
-
+# non auth users decorator
 @unauthenticated_user
 def login_page(request):
     if request.POST:
