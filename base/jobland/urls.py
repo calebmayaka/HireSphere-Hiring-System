@@ -25,4 +25,5 @@ urlpatterns = [
     path('job/', include('job.urls')),
 ]
 
+# server media files to production directory
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
