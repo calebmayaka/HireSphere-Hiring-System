@@ -1085,3 +1085,6 @@ def contact(request):
             return HttpResponseRedirect('contact')
 
     return render(request, 'user/contact.html', {})
+
+def help(request):
+    return render(request, 'user/help.html', {})
