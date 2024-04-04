@@ -77,6 +77,8 @@ urlpatterns = [
     path('deactivation-successful/', deactivation_successful_view, name='deactivation-successful'),
     path('about', about, name='about'),
     path('contact', contact, name='contact'),
+    # first help is the url pattern, second help is the name of the function in view.py and third help is the referecing name in the templates/ unique identifier
+    path('help', help, name='help'),
 
      # Password reset views
     path('reset-password/',
