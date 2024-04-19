@@ -10,4 +10,5 @@ urlpatterns = [
 
     # applicant list in job profile
     path('job-profile/applicant-list/<str:pk>/', applicant_list, name='applicant-list'),
+    path('job-profile/generate_applicants_report/<str:pk>/', generate_applicants_report, name='applicant_report'),
 ]
