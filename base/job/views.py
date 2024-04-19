@@ -156,44 +156,44 @@ def applicant_list(request, pk):
     }
     return render(request, 'job/applicant-list.html', context)
 
-# views.py
-from django.http import HttpResponse
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
-from reportlab.lib.styles import getSampleStyleSheet
-from .models import AppliedJobModel
+# # views.py
+# from django.http import HttpResponse
+# from reportlab.lib.pagesizes import letter
+# from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+# from reportlab.lib.styles import getSampleStyleSheet
+# from .models import AppliedJobModel
 
-def generate_applicants_report(request, job_id):
-    # Retrieve applicants for the job
-    applicants = AppliedJobModel.objects.filter(job_id=job_id)
+# def generate_applicants_report(request, job_id):
+#     # Retrieve applicants for the job
+#     applicants = AppliedJobModel.objects.filter(job_id=job_id)
 
-    # Create a response object
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="applicants_report.pdf"'
+#     # Create a response object
+#     response = HttpResponse(content_type='application/pdf')
+#     response['Content-Disposition'] = 'attachment; filename="applicants_report.pdf"'
 
-    # Create a PDF document
-    doc = SimpleDocTemplate(response, pagesize=letter)
-    styles = getSampleStyleSheet()
-    elements = []
+#     # Create a PDF document
+#     doc = SimpleDocTemplate(response, pagesize=letter)
+#     styles = getSampleStyleSheet()
+#     elements = []
 
-    # Add title to the report
-    title = Paragraph("Applicants for Job", styles['Title'])
-    elements.append(title)
-    elements.append(Spacer(1, 12))
+#     # Add title to the report
+#     title = Paragraph("Applicants for Job", styles['Title'])
+#     elements.append(title)
+#     elements.append(Spacer(1, 12))
 
-    # Add applicants' information to the report
-    for applicant in applicants:
-        # Retrieve applicant details
-        name = applicant.applicant.name
-        email = applicant.applicant.email
-        percentage = applicant.percentage
+#     # Add applicants' information to the report
+#     for applicant in applicants:
+#         # Retrieve applicant details
+#         name = applicant.applicant.name
+#         email = applicant.applicant.email
+#         percentage = applicant.percentage
 
-        # Create a paragraph with applicant information
-        applicant_info = f"<b>Name:</b> {name}<br/><b>Email:</b> {email}<br/><b>Percentage:</b> {percentage}%<br/>"
-        elements.append(Paragraph(applicant_info, styles['Normal']))
-        elements.append(Spacer(1, 6))
+#         # Create a paragraph with applicant information
+#         applicant_info = f"<b>Name:</b> {name}<br/><b>Email:</b> {email}<br/><b>Percentage:</b> {percentage}%<br/>"
+#         elements.append(Paragraph(applicant_info, styles['Normal']))
+#         elements.append(Spacer(1, 6))
 
-    # Build PDF
-    doc.build(elements)
+#     # Build PDF
+#     doc.build(elements)
 
-    return response
+#     return response
