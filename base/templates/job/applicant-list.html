@@ -159,6 +159,14 @@
                             </b>
                         </a>
                     </li>
+                    <section>
+                        <h1>Applicants Report</h1>
+                        <!-- Add a button to trigger the report generation -->
+                        <form action="{% url 'applicant_report' job_id=job.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Generate Report</button>
+                        </form>
+                        <section/>
                     {% endif %}
                     {% endfor %}
 
