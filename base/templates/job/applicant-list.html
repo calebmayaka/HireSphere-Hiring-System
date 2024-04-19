@@ -159,14 +159,59 @@
                             </b>
                         </a>
                     </li>
-                    {% comment %} <section>
-                        <h1>Applicants Report</h1>
-                        <!-- Add a button to trigger the report generation -->
-                        <form action="{% url 'applicant_report' job_id=job.id %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit">Generate Report</button>
-                        </form>
-                        <section/> {% endcomment %}
+
+                                  <!-- Print button -->
+<button onclick="printApplicants();" class="btn btn-primary mt-4 print-button">Generate Report</button>
+
+<!-- Script to handle printing -->
+<script>
+    function printApplicants() {
+        // Hide the print button
+        var printButton = document.querySelector('.print-button');
+        if (printButton) {
+            printButton.style.display = 'none';
+        }
+
+        // Hide unwanted elements
+        var unwantedElements = document.querySelectorAll('.site-navbar, .section-hero, .site-footer');
+        unwantedElements.forEach(function(el) {
+            el.style.display = 'none';
+        });
+
+        // Show only the section containing the list of applicants
+        var applicantsSection = document.getElementById('whole-section');
+        if (applicantsSection) {
+            applicantsSection.style.display = 'block';
+        }
+
+        // Print the section containing the list of applicants
+        window.print();
+
+        // Hide the section containing the list of applicants after printing
+        if (applicantsSection) {
+            applicantsSection.style.display = 'none';
+        }
+
+        // Show hidden elements again after printing
+        unwantedElements.forEach(function(el) {
+            el.style.display = '';
+        });
+
+        // Show the print button again
+        if (printButton) {
+            printButton.style.display = 'block';
+        }
+    }
+</script>
+
+                                                                                    {% comment %} <section>
+                                                                                        <h1>Applicants Report</h1>
+                                                                                        <!-- Add a button to trigger the report generation -->
+                                                                                        <form action="{% url 'applicant_report' job_id=job.id %}" method="post">
+                                                                                            {% csrf_token %}
+                                                                                            <button type="submit">Generate Report</button>
+                                                                                        </form>
+                                                                                        <section/> {% endcomment %}
                     {% endif %}
                     {% endfor %}
 
