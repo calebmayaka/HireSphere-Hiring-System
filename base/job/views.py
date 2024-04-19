@@ -158,41 +158,40 @@ def applicant_list(request, pk):
 
 # views.py
 from django.http import HttpResponse
-from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
-from .models import AppliedJobModel  # Import your Django model
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from .models import AppliedJobModel
 
-def generate_pdf_report(request):
-    # Retrieve data from the database
-    queryset = AppliedJobModel.objects.all()  # Replace YourModel with your actual Django model
-    data = [['Name', 'Age', 'Gender']]  # Initialize data with header row
-
-    for item in queryset:
-        data.append([item.name, item.age, item.gender])  # Add data from database to the list
+def generate_applicants_report(request, job_id):
+    # Retrieve applicants for the job
+    applicants = AppliedJobModel.objects.filter(job_id=job_id)
 
     # Create a response object
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    response['Content-Disposition'] = 'attachment; filename="applicants_report.pdf"'
 
     # Create a PDF document
     doc = SimpleDocTemplate(response, pagesize=letter)
+    styles = getSampleStyleSheet()
     elements = []
 
-    # Create a table and style
-    table = Table(data)
-    style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
-                        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
-                        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-                        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-                        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
-                        ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
-                        ('GRID', (0, 0), (-1, -1), 1, colors.black)])
+    # Add title to the report
+    title = Paragraph("Applicants for Job", styles['Title'])
+    elements.append(title)
+    elements.append(Spacer(1, 12))
 
-    table.setStyle(style)
+    # Add applicants' information to the report
+    for applicant in applicants:
+        # Retrieve applicant details
+        name = applicant.applicant.name
+        email = applicant.applicant.email
+        percentage = applicant.percentage
 
-    # Add table to the elements list
-    elements.append(table)
+        # Create a paragraph with applicant information
+        applicant_info = f"<b>Name:</b> {name}<br/><b>Email:</b> {email}<br/><b>Percentage:</b> {percentage}%<br/>"
+        elements.append(Paragraph(applicant_info, styles['Normal']))
+        elements.append(Spacer(1, 6))
 
     # Build PDF
     doc.build(elements)
