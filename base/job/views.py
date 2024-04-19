@@ -155,3 +155,46 @@ def applicant_list(request, pk):
         'applications': applications
     }
     return render(request, 'job/applicant-list.html', context)
+
+# views.py
+from django.http import HttpResponse
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from .models import AppliedJobModel  # Import your Django model
+
+def generate_pdf_report(request):
+    # Retrieve data from the database
+    queryset = AppliedJobModel.objects.all()  # Replace YourModel with your actual Django model
+    data = [['Name', 'Age', 'Gender']]  # Initialize data with header row
+
+    for item in queryset:
+        data.append([item.name, item.age, item.gender])  # Add data from database to the list
+
+    # Create a response object
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+    # Create a PDF document
+    doc = SimpleDocTemplate(response, pagesize=letter)
+    elements = []
+
+    # Create a table and style
+    table = Table(data)
+    style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                        ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                        ('GRID', (0, 0), (-1, -1), 1, colors.black)])
+
+    table.setStyle(style)
+
+    # Add table to the elements list
+    elements.append(table)
+
+    # Build PDF
+    doc.build(elements)
+
+    return response
