@@ -57,7 +57,7 @@
         </div>
     </div>
 </header>
-
+ <section id="whole section" >
 <!-- HOME -->
 <section class="section-hero overlay inner-page bg-image" id="home-section">
     <div class="container">
@@ -159,23 +159,6 @@
                             </b>
                         </a>
                     </li>
-                    <!-- Print button -->
-<button onclick="printApplicants();" class="btn btn-primary mt-4">Print Applicants</button>
-
-<!-- Script to handle printing -->
-<script>
-    function printApplicants() {
-        // Hide unwanted elements
-        document.querySelectorAll('.site-navbar, .section-hero, .site-section').forEach(function(el) {
-            el.style.display = 'none';
-        });
-        // Print only the list of applicants
-        window.print();
-        // Show hidden elements again after printing
-        document.querySelectorAll('.site-navbar, .section-hero, .site-section').forEach(function(el) {
-            el.style.display = '';
-        });
-    }
                     {% comment %} <section>
                         <h1>Applicants Report</h1>
                         <!-- Add a button to trigger the report generation -->
@@ -191,6 +174,8 @@
             </div>
         </div>
     </div>
+</section>
+
 </section>
 
 {% endblock %}
