@@ -1077,7 +1077,7 @@ def contact(request):
 
         if subject and message and from_email:
             try:
-                send_mail(subject, message, from_email, ['meherajmahmmd@gmail.com'])
+                send_mail(subject, message, from_email, ['Hiresphere@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
