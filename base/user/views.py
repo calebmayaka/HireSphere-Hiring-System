@@ -105,7 +105,7 @@ def company_register(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=raw_password)
             CompanyProfileModel.objects.create(user=user)
-            # send_registration_mail(user)
+            send_registration_mail(user)
             return redirect('company-profile', user.id)
         else:
             return render(request, 'user/company/company-register.html', {"form": form})
